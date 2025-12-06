@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="240" height="48" viewBox="0 0 240 48" xmlns="http://www.w3.org/2000/svg" role="img" aria-labelledby="logo-title">
+  <title id="logo-title">MedLingua AI – brain symbol with text</title>
+  
+  <defs>
+    <linearGradient id="brain-grad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#2563eb"/>
+      <stop offset="100%" stop-color="#3b82f6"/>
+    </linearGradient>
+  </defs>
+
+  <!-- Brain/AI Symbol (left) -->
+  <g transform="translate(4, 6)">
+    <!-- Brain outline with neural connections -->
+    <circle cx="14" cy="14" r="12" fill="none" stroke="url(#brain-grad)" stroke-width="1.5" opacity="0.6"/>
+    
+    <!-- Top lobe -->
+    <path d="M10 4 Q8 2 6 3 Q4 4 5 7 Q7 8 10 7" fill="url(#brain-grad)" opacity="0.9"/>
+    <!-- Bottom left lobe -->
+    <path d="M8 22 Q6 24 4 23 Q2 21 4 19 Q6 19 8 20" fill="url(#brain-grad)" opacity="0.85"/>
+    <!-- Bottom right lobe -->
+    <path d="M20 22 Q22 24 24 23 Q26 21 24 19 Q22 19 20 20" fill="url(#brain-grad)" opacity="0.85"/>
+    <!-- Right lobe -->
+    <path d="M22 10 Q24 8 26 9 Q27 11 25 13 Q23 14 22 12" fill="url(#brain-grad)" opacity="0.9"/>
+    
+    <!-- Neural connection dots -->
+    <circle cx="14" cy="8" r="1.2" fill="#2563eb" opacity="0.7"/>
+    <circle cx="10" cy="14" r="0.8" fill="#3b82f6" opacity="0.8"/>
+    <circle cx="18" cy="14" r="0.8" fill="#3b82f6" opacity="0.8"/>
+    <circle cx="14" cy="20" r="1.2" fill="#2563eb" opacity="0.7"/>
+  </g>
+
+  <!-- MedLingua AI Text (right) -->
+  <text x="40" y="32" font-family="system-ui, -apple-system, Segoe UI, Roboto, 'Helvetica Neue', Arial" font-size="20" font-weight="700" fill="#0f172a">MedLingua</text>
+  <text x="170" y="32" font-family="system-ui, -apple-system, Segoe UI, Roboto, 'Helvetica Neue', Arial" font-size="20" font-weight="700" fill="#2563eb">AI</text>
+</svg>

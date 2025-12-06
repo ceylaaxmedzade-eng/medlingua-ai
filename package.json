@@ -1,0 +1,23 @@
+{
+  "name": "medlingua-ai",
+  "version": "0.1.0",
+  "description": "MedLingua AI - translate medical text into plain language (prototype)",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js",
+    "dev": "nodemon server.js"
+  },
+  "author": "",
+  "license": "MIT",
+  "dependencies": {
+    "better-sqlite3": "^8.2.0",
+    "cors": "^2.8.5",
+    "dotenv": "^16.0.0",
+    "express": "^4.18.2",
+    "express-rate-limit": "^6.7.0",
+    "multer": "^1.4.5-lts.1",
+    "node-fetch": "^2.6.7",
+    "pdf-parse": "^1.1.1",
+    "pdfkit": "^0.13.0"
+  }
+}

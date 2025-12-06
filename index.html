@@ -1,0 +1,362 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>MedLingua AI – Translate Medicine Into Human Language</title>
+  <meta name="description" content="MedLingua AI makes medical reports easy to understand. Clear explanations, no jargon, just facts." />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><rect width='100' height='100' fill='%232563eb'/><text x='50' y='65' font-size='60' font-weight='bold' text-anchor='middle' fill='white'>M</text></svg>" />
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <header class="nav">
+    <a class="nav__logo" href="/">
+      <img src="logo.svg" alt="MedLingua AI logo" class="logo-img" />
+    </a>
+    <nav class="nav__links">
+      <a href="#how">How it works</a>
+      <a href="#research">Research</a>
+      <a href="#demo">Demo</a>
+      <a href="#about">About</a>
+      <a href="#demo" class="nav__cta">Get started</a>
+    </nav>
+  </header>
+
+  <main>
+    <!-- HERO -->
+    <section class="hero">
+      <div class="hero__text">
+        <h1>Stop guessing. Understand your lab report.</h1>
+        <p>
+          Medical jargon shouldn't be a barrier to understanding your health. MedLingua AI explains lab results, diagnoses, and medical texts in plain language—instantly.
+        </p>
+        <div class="hero__buttons">
+          <a href="#demo" class="btn btn--primary">Try demo now</a>
+          <a href="#about" class="btn btn--ghost">Learn more</a>
+        </div>
+      </div>
+      <div class="hero__demo-card">
+        <div class="hero__badge">✨ Live Example</div>
+        <div class="hero__demo-input">
+          <p class="hero__label">Example Medical Report</p>
+          <p class="hero__code">
+            Fasting glucose 126 mg/dL. HbA1c 6.8%. Total cholesterol 220 mg/dL. Repeat testing recommended.
+          </p>
+        </div>
+        <div class="hero__demo-output">
+          <p class="hero__label">What It Means (Plain English)</p>
+          <p class="hero__plain">
+            Your blood sugar and cholesterol levels are slightly above normal. This doesn't mean you have diabetes or heart disease, but it's a sign to talk with your doctor about lifestyle adjustments. Ask about diet, exercise, and when to get tested again.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <!-- PROBLEM -->
+    <section class="section section--light">
+      <div class="section__inner">
+        <h2>Most people don’t understand their own medical reports.</h2>
+        <div class="cards">
+          <div class="card">
+            <h3>Confusing language</h3>
+            <p>
+              Medical documents are written for doctors, not patients.
+              Abbreviations, Latin, jargon – pure chaos.
+            </p>
+          </div>
+          <div class="card">
+            <h3>Anxiety & Google panic</h3>
+            <p>
+              When people don’t understand, they google symptoms and
+              imagine the worst instead of asking the right questions.
+            </p>
+          </div>
+          <div class="card">
+            <h3>Unequal access</h3>
+            <p>
+              Health literacy depends on education, language and background.
+              AI can help level that gap.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- HOW IT WORKS -->
+    <section id="how" class="section">
+      <div class="section__inner">
+        <h2>How MedLingua AI works</h2>
+        <div class="steps">
+          <div class="step">
+            <div class="step__number">1</div>
+            <h3>Paste your medical text</h3>
+            <p>
+              Lab results, discharge summaries, ultrasound reports – any medical document written in technical language. Just copy and paste.
+            </p>
+          </div>
+          <div class="step">
+            <div class="step__number">2</div>
+            <h3>Choose your reading level & tone</h3>
+            <p>
+              Select Basic, Teen, or Advanced. Pick Neutral, Gentle, or Direct to match how you want to learn about your health.
+            </p>
+          </div>
+          <div class="step">
+            <div class="step__number">3</div>
+            <h3>Get clear explanations</h3>
+            <p>
+              MedLingua AI rewrites the text in plain English with context, calm explanations, and smart questions to ask your doctor.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- DEMO -->
+    <section id="demo" class="section section--demo">
+      <div class="section__inner">
+        <h2>Try the demo</h2>
+        <p class="section__subtitle">
+          Paste a medical text below, choose your reading level and tone, and see how MedLingua AI explains it.
+        </p>
+        <div class="demo-grid">
+          <div class="demo-grid__col">
+            <label for="inputText" class="demo-label">Medical text</label>
+            <textarea id="inputText" placeholder="Paste a lab report, ultrasound, or doctor's note here..."></textarea>
+
+            <div class="demo-controls">
+              <label>
+                Level:
+                <select id="levelSelect">
+                  <option value="basic">Basic</option>
+                  <option value="teen">Teen (age 13-17)</option>
+                  <option value="advanced">Advanced</option>
+                </select>
+              </label>
+
+              <label>
+                Tone:
+                <select id="toneSelect">
+                  <option value="neutral">Neutral</option>
+                  <option value="gentle">Gentle & supportive</option>
+                  <option value="direct">Direct & factual</option>
+                </select>
+              </label>
+            </div>
+
+            <button id="translateBtn" class="btn btn--primary">Translate to human language</button>
+            <div style="margin-top:0.6rem; display:flex; gap:0.6rem; align-items:center; flex-wrap:wrap;">
+              <input id="uploadInput" type="file" accept="application/pdf" style="display:none" />
+              <button id="chooseFileBtn" class="btn btn--ghost">Upload PDF</button>
+              <button id="uploadBtn" class="btn" style="background:#374151;color:#fff;border-radius:999px;">Parse PDF</button>
+              <span id="uploadStatus" style="color:#9ca3af;font-size:0.85rem;margin-left:0.6rem"></span>
+            </div>
+          </div>
+
+          <div class="demo-grid__col">
+            <label class="demo-label">MedLingua AI explanation</label>
+            <div id="outputBox" class="output-box">
+              <p class="placeholder">Your explanation will appear here.</p>
+            </div>
+
+            <div style="display:flex;gap:0.5rem;margin-top:0.6rem;flex-wrap:wrap;">
+              <button id="copyBtn" class="btn btn--ghost">Copy</button>
+              <button id="saveBtn" class="btn btn--ghost">Save</button>
+              <button id="exportTxtBtn" class="btn">Export .txt</button>
+              <button id="exportPdfBtn" class="btn">Export .pdf</button>
+            </div>
+
+            <div id="historySection" style="margin-top:1rem;">
+              <h4 style="margin:0 0 0.4rem 0; color:#9ca3af; font-size:0.9rem">History</h4>
+              <div style="display:flex;gap:0.5rem;align-items:center;margin-bottom:0.5rem">
+                <button id="historyRefresh" class="btn btn--ghost">Refresh</button>
+                <span id="historyStatus" style="color:#9ca3af;font-size:0.85rem"></span>
+              </div>
+              <div id="historyList" style="max-height:220px;overflow:auto;gap:0.4rem;display:flex;flex-direction:column"></div>
+            </div>
+
+            <div class="output-extra">
+              <h4>⚠️ Important</h4>
+              <p>
+                MedLingua AI is not a medical diagnosis tool. Always discuss results with your healthcare provider. We explain language, not medical decisions.
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ABOUT -->
+    <section id="about" class="section section--light">
+      <div class="section__inner section__about">
+        <div>
+          <h2>About MedLingua AI</h2>
+          <p>
+            MedLingua AI is a student-led project built at the intersection of medicine, public health, and artificial intelligence. Our mission: break down the language barrier between healthcare providers and patients.
+          </p>
+          <p>
+            We believe health literacy is a right, not a privilege. Whether you're reading your own report or helping a family member, clear language builds confidence and better conversations with doctors.
+          </p>
+          <p style="color: #6b7280; font-size: 0.9rem; margin-top: 1.5rem;">
+            <strong>Built with:</strong> HTML, CSS, JavaScript · Lightweight · No tracking · No ads
+          </p>
+        </div>
+        <div class="about-card">
+          <h3>🚀 Our commitment</h3>
+          <ul style="list-style: none; padding: 0; color: #4b5563; font-size: 0.9rem;">
+            <li>✓ Clear, accurate explanations</li>
+            <li>✓ Emotional safety first</li>
+            <li>✓ Respect for medical ethics</li>
+            <li>✓ Accessible to everyone</li>
+            <li>✓ Privacy-focused</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <!-- RESEARCH -->
+    <section id="research" class="section">
+      <div class="section__inner">
+        <h2>Research & Impact</h2>
+
+        <!-- Research agenda -->
+        <div class="section__about" style="margin-bottom: 2rem;">
+          <div>
+            <h3>Research agenda</h3>
+            <p>
+              I am a high school student from Azerbaijan aspiring to become a
+              physician-scientist. My work sits at the intersection of
+              <strong>medicine</strong>, <strong>public health</strong> and
+              <strong>artificial intelligence</strong>, with a focus on how
+              AI can improve health literacy for young people and families.
+            </p>
+            <p>
+              Growing up in a medical family, I have seen how often patients
+              receive lab reports and diagnoses they cannot fully understand.
+              This motivates me to design tools that reduce fear, support
+              informed decisions and make high-quality medical knowledge
+              accessible regardless of background, language or income.
+            </p>
+          </div>
+          <div class="about-card">
+            <h3>Core interests</h3>
+            <ul style="padding-left: 1.1rem; margin: 0;">
+              <li>AI-driven simplification of medical language</li>
+              <li>Health literacy in adolescents and young adults</li>
+              <li>Public health communication and misinformation</li>
+              <li>Equity in access to understandable medical information</li>
+              <li>Human-centered AI for clinical and educational settings</li>
+            </ul>
+          </div>
+        </div>
+
+        <!-- Current projects -->
+        <h3>Current projects</h3>
+        <div class="cards" style="margin-bottom: 2rem;">
+          <div class="card">
+            <h4>MedLingua AI: Plain-language medical explanations</h4>
+            <p>
+              MedLingua AI is a web-based prototype that transforms complex
+              medical terminology into clear, emotionally safe language for
+              patients and their families. The project explores:
+            </p>
+            <ul>
+              <li>NLP approaches to medical text simplification</li>
+              <li>How tone (neutral, gentle, direct) affects anxiety</li>
+              <li>Reducing “Google panic” and self-diagnosis</li>
+              <li>Supporting better conversations between doctors and patients</li>
+            </ul>
+            <p>
+              The long-term goal is to collaborate with clinicians, public health
+              organisations and youth health initiatives to pilot MedLingua AI
+              in real-world settings.
+            </p>
+          </div>
+
+          <div class="card">
+            <h4>Study: Health literacy in adolescents</h4>
+            <p>
+              This independent study focuses on how teenagers interpret common
+              medical tests and health information. It examines:
+            </p>
+            <ul>
+              <li>Main sources of health information (social media, family, doctors)</li>
+              <li>Levels of medical anxiety and common misconceptions</li>
+              <li>
+                Whether AI-assisted explanations can improve understanding and
+                reduce fear
+              </li>
+            </ul>
+            <p>
+              The study is planned as a mixed-methods project combining
+              questionnaires, scenario-based tasks and qualitative feedback
+              from participants.
+            </p>
+          </div>
+
+          <div class="card">
+            <h4>AI, environment and public health (concept stage)</h4>
+            <p>
+              Building on my interest in public health and environmental
+              exposures, I am developing concepts for projects that connect
+              air quality, urban living and cardiovascular and mental health
+              in young people.
+            </p>
+            <p>
+              The idea is to use data-driven tools and AI to visualise risks
+              in a way that teenagers and families can easily understand and
+              act on, especially in rapidly developing cities.
+            </p>
+          </div>
+        </div>
+
+        <!-- Why it matters + future directions -->
+        <div class="section__about">
+          <div>
+            <h3>Why this matters</h3>
+            <p>
+              Around the world, millions of people receive medical reports,
+              discharge summaries and treatment plans they cannot fully
+              understand. Misunderstanding leads to unnecessary panic, delayed
+              care, misuse of medication and widening health inequalities.
+            </p>
+            <p>
+              Clear, respectful communication is not a luxury; it is a public
+              health priority. By combining AI with evidence-based communication
+              strategies, I aim to create tools that support patients rather
+              than overwhelm them.
+            </p>
+          </div>
+          <div class="about-card">
+            <h3>Future directions</h3>
+            <ul style="padding-left: 1.1rem; margin: 0;">
+              <li>Collaborating with clinicians and public health experts</li>
+              <li>Designing multilingual versions of MedLingua AI</li>
+              <li>
+                Participating in research programs, summer schools and youth
+                science competitions
+              </li>
+              <li>
+                Publishing results in youth research conferences and open
+                access formats
+              </li>
+              <li>
+                Building a long-term profile as a physician-scientist focused
+                on health literacy and AI in medicine
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <div class="footer__inner">
+      <p>© MedLingua AI · Educational prototype · Not a medical service · Made with ❤️ for health literacy</p>
+    </div>
+  </footer>
+
+  <script src="app.js"></script>
+</body>
+</html>
